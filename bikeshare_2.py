@@ -38,10 +38,13 @@ def get_day():
     Returns:
         (str) day - day of the week to use for the analyse, "all" for no filter
     """
+    for i in range(1, len(DAYS)+1):
+        print('{0:20}. {1}'.format(i, DAYS[i-1]))
+
     day = ''
     while True:
         try:
-            day = input("    Enter the day with Monday=1, Sunday=7 or 'all' ")
+            day = input("\nEnter the day with Monday=1, Sunday=7 or 'all' ")
         except:
             print(" !!! Error : you must insert  :  1 - 7, or  all")
             continue
@@ -63,10 +66,13 @@ def get_month():
     Returns:
         (str) month - name of the month to filter by, or "all" for no filter
     """
+    for i in range(1, len(MONTHS)+1):
+        print('{0:20}. {1}'.format(i, MONTHS[i-1]))
+
     month = 'all'
     while True:
         try:
-            month = input("    Enter the month with January=1, June=6 or 'all' ")
+            month = input("\nEnter the month with January=1, June=6 or 'all' ")
         except:
             print(" !!! Error : you must insert  :   1 - 6, all ")
             continue
@@ -93,15 +99,15 @@ def get_city():
     cities = []
     cities_count = 0
 
-    for a_city in CITY_DATA:
-        cities.append(a_city)
+    for city in CITY_DATA:
+        cities.append(city)
         cities_count += 1
-        print('        {0:20}. {1}'.format(cities_count, a_city.title()))
+        print('{0:20}. {1}'.format(cities_count, city.title()))
 
     # ask user to input a number for a city from the list; easier for user than string input
     while True:
         try:
-            city_num = int(input("\n    Enter a number for the city (1 - {}):  ".format(len(cities))))
+            city_num = int(input("\nEnter a number for the city (1 - {}):  ".format(len(cities))))
         except:
             continue
 
@@ -122,7 +128,7 @@ def get_filters():
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
-    print('Hello! Let\'s explore some US bikeshare data!')
+    print('Hello! Let\'s explore some US bikeshare data!\n')
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     city = get_city()
 
